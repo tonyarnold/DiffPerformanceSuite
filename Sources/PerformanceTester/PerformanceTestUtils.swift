@@ -23,7 +23,7 @@ func currentDirectoryPath() -> String {
     let buffer: UnsafeMutablePointer<Int8> = UnsafeMutablePointer.allocate(capacity: Int(PATH_MAX))
     getcwd(buffer, Int(PATH_MAX))
     let string = String(cString: buffer)
-    buffer.deallocate(capacity: Int(PATH_MAX))
+    buffer.deallocate()
     return string
 }
 
