@@ -34,7 +34,7 @@ func measure(_ f: () -> Void) -> CFTimeInterval {
 }
 
 func file(_ path: String) -> [Character] {
-    return try! Array(String(contentsOfFile: path).characters)
+    return try! Array(String(contentsOfFile: path))
 }
 
 func diffSwift(_ a: [Character], b: [Character]) {
@@ -50,7 +50,7 @@ func launchPath() -> String {
     let dotIndex = path.index(after: path.startIndex)
     var lastSlashIndex = path.index(before: path.endIndex)
     let c: Character = "/"
-    while path.characters[lastSlashIndex] != c {
+    while path[lastSlashIndex] != c {
         lastSlashIndex = path.index(before: lastSlashIndex)
     }
     return String(path[dotIndex ... lastSlashIndex])
